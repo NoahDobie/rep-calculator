@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <header className="w-full py-2">
+    <header className="w-full">
       <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center">
         <a
           href="https://github.com/NoahDobie/"
