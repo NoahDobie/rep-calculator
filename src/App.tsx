@@ -1,47 +1,27 @@
-import { useState, useEffect, ChangeEvent, useRef } from 'react';
-import Calculator from './components/Calculator';
+import { useState, ChangeEvent, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import CalculatedRepsDisplay from './components/CalculatedRepsDisplay';
 import DarkModeToggleContainer from './components/DarkModeToggleContainer';
 import WeightInputForm from './components/WeightInputForm';
 import InfoScreen from './components/InfoScreen';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import useLocalStorage from './hooks/useLocalStorage';
+import useTheme from './hooks/useTheme';
 import './App.css';
 
 function App() {
-  const [weight, setWeight] = useState<number | ''>('');
-  const [reps, setReps] = useState<number | ''>('');
-  const [unit, setUnit] = useState<string>('lbs');
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [weight, setWeight] = useLocalStorage<number | ''>('weight', '');
+  const [reps, setReps] = useLocalStorage<number | ''>('reps', '');
+  const [unit, setUnit] = useLocalStorage<string>('unit', 'lbs');
+  const [isDarkMode, toggleTheme] = useTheme();
   const [isInfoOpen, setIsInfoOpen] = useState<boolean>(false);
   const calculatorRef = useRef(null);
-
-  useEffect(() => {
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDarkMode(prefersDarkScheme.matches);
-    const handleChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches);
-    };
-    prefersDarkScheme.addEventListener('change', handleChange);
-    return () => {
-      prefersDarkScheme.removeEventListener('change', handleChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    const savedWeight = localStorage.getItem('weight');
-    const savedReps = localStorage.getItem('reps');
-    const savedUnit = localStorage.getItem('unit');
-    if (savedWeight !== null) setWeight(Number(savedWeight));
-    if (savedReps !== null) setReps(Number(savedReps));
-    if (savedUnit !== null) setUnit(savedUnit);
-  }, []);
 
   const handleWeightChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value === '' ? '' : Number(e.target.value);
     if (value === '' || value <= 9999) {
       setWeight(value);
-      localStorage.setItem('weight', value.toString());
     }
   };
 
@@ -49,17 +29,15 @@ function App() {
     const value = e.target.value === '' ? '' : Number(e.target.value);
     if (value === '' || value <= 9999) {
       setReps(value);
-      localStorage.setItem('reps', value.toString());
     }
   };
 
-  const handleUnitChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setUnit(e.target.value);
-    localStorage.setItem('unit', e.target.value);
+  const handleUnitChange = (newUnit: string) => {
+    setUnit(newUnit);
   };
 
   const handleDarkModeToggle = (mode: 'dark' | 'light') => {
-    setIsDarkMode(mode === 'dark');
+    toggleTheme(mode);
   };
 
   const shouldShowCalculator = weight !== '' && reps !== '' && weight > 0 && reps > 0;
@@ -92,7 +70,7 @@ function App() {
           nodeRef={calculatorRef}
         >
           <div ref={calculatorRef}>
-            <Calculator weight={Number(weight)} reps={Number(reps)} unit={unit} isDarkMode={isDarkMode} />
+            <CalculatedRepsDisplay weight={Number(weight)} reps={Number(reps)} unit={unit} isDarkMode={isDarkMode} />
           </div>
         </CSSTransition>
       </div>

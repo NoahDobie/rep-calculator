@@ -20,23 +20,24 @@ function InfoScreen({ isOpen, onClose, isDarkMode }: InfoScreenProps) {
       <div className={`relative ${isDarkMode ? 'bg-dark-background text-dark-text' : 'bg-light-background text-light-text'} p-6 rounded-lg shadow-lg max-w-md w-[95%]`}>
         <button
           onClick={onClose}
-          className="absolute top-1 right-3 transition duration-300 text-gray-800 hover:text-red-900 dark:text-gray-300"
+          className="absolute top-1 right-3 text-gray-800 hover:text-[#FFD43B] dark:text-gray-300"
         >
           &times;
         </button>
         <h2 className="text-xl font-bold mb-4">How does this john work?</h2>
         <p className="w-full mb-4">
-          We use the <a href="https://www.vcalc.com/wiki/epley-formula-1-rep-max" className="transition duration-300 hover:text-red-900 focus:text-red-900">Epley formula</a> to calculate your 1 rep max:
+          We use a bunch of different
+          <a href="https://www.vbtcoach.com/blog/5-ways-to-measure-1rm-strength-in-the-gym" className="mx-1 underline underline-offset-2 hover:text-[#FFD43B] focus:text-[#FFD43B]">formulas</a>
+          to gather the average value and provide you with your 1 rep max!
           <br />
-          <strong>1RM = weight * (1 + reps / 30)</strong>
         </p>
         <p className="mb-4">
-          This formula provides a good estimate of your 1 rep max, but it may not be perfectly accurate for everyone. It always give me the confidence of around what my 1RM will be. Only one way to find out for sure, though!
+          This provides a solid estimate of your 1 rep max, but it may not be perfectly accurate for everyone. It always give me the confidence of around what my 1RM will be. Only one way to find out for sure, though!
         </p>
         <p className="mt-4">
           <a
             href="https://github.com/NoahDobie/"
-            className="transition duration-300 hover:text-red-900"
+            className="hover:text-[#FFD43B]"
             target="_blank"
             rel="noopener noreferrer"
           >

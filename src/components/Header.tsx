@@ -4,7 +4,7 @@ function Header() {
       <h1 className="w-full mb-4 text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-center">
           <a
             href="https://github.com/NoahDobie/"
-            className=" hover:text-red-900"
+            className=" hover:text-[#FFD43B]"
             target="_blank"
             rel="noopener noreferrer"
           >
