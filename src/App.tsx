@@ -76,7 +76,7 @@ function App() {
         />
       </div>
       <Header />
-      <div className="w-[95%] sm:w-[75%] md:w-[50%] lg:w-[33%] xl:w-[30%] max-h-[80vh] overflow-auto">
+      <div className="w-[95%] sm:w-[75%] md:w-[50%] lg:w-[33%] xl:w-[30%] max-h-[85vh] overflow-auto">
         <WeightInputForm
           weight={weight}
           reps={reps}

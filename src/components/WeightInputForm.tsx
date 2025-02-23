@@ -20,7 +20,7 @@ function WeightInputForm({
   isDarkMode,
 }: WeightInputFormProps) {
   return (
-    <div className={`transition-colors duration-300 p-4 sm:p-6 rounded-lg shadow-md mt-6 ${isDarkMode ? 'bg-dark-secondary text-dark-text' : 'bg-light-secondary text-light-text'}`}>
+    <div className={`transition-colors duration-300 p-4 sm:p-6 rounded-lg shadow-md ${isDarkMode ? 'bg-dark-secondary text-dark-text' : 'bg-light-secondary text-light-text'}`}>
       <div className="mb-4">
         <label className={`block text-lg font-medium ${isDarkMode ? 'text-dark-text' : 'text-light-text'}`}>Weight</label>
         <div className="flex">
