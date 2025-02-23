@@ -2,7 +2,6 @@ import { useState, useEffect, ChangeEvent, useRef } from 'react';
 import Calculator from './components/Calculator';
 import { CSSTransition } from 'react-transition-group';
 import DarkModeToggleContainer from './components/DarkModeToggleContainer';
-import Header from './components/Header';
 import WeightInputForm from './components/WeightInputForm';
 import InfoScreen from './components/InfoScreen';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -75,8 +74,7 @@ function App() {
           onClick={() => setIsInfoOpen(true)}
         />
       </div>
-      <Header />
-      <div className="w-[95%] sm:w-[75%] md:w-[50%] lg:w-[33%] xl:w-[30%] max-h-[85vh] overflow-auto">
+      <div className="p-2 w-[95%] sm:w-[75%] md:w-[50%] lg:w-[33%] xl:w-[30%]">
         <WeightInputForm
           weight={weight}
           reps={reps}

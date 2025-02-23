@@ -1,17 +1,17 @@
 function Header() {
   return (
     <header className="w-full">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center">
-        <a
-          href="https://github.com/NoahDobie/"
-          className="transition duration-300 hover:text-red-900"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Noah's
-        </a>
-        {' '}1 Rep Max Calculator
-      </h1>
+      <h1 className="w-full mb-4 text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-center">
+          <a
+            href="https://github.com/NoahDobie/"
+            className=" hover:text-red-900"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Noah's
+          </a>
+          {' '}1 Rep Max Calculator
+        </h1>
     </header>
   );
 }

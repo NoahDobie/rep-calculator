@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Rep Calculator",
+  "name": "1 Rep Max Calculator",
+  "description": "A simple gym rep calculator - 1RM and such",
   "icons": [
     {
       "src": "favicon.ico",
