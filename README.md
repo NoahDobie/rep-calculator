@@ -1,10 +1,10 @@
 # Rep Calculator
 
-This project is a 1 Rep Max + more Calculator built with React. It uses the Epley formula to estimate your one-repetition maximum (1RM) based on the weight you lift and the number of repetitions you perform. The app also supports dark mode and saves your last input values for weight, reps, and unit (lbs/kg) in local storage.
+This project is a 1 Rep Max + more Calculator built with React. It uses the many different formulas to estimate your one-repetition maximum (1RM) and other reps down to 50% based on the weight you lift and the number of repetitions you perform. The app also supports dark mode and saves your last input values for weight, reps, unit (lbs/kg), and lift type in local storage.
 
 ## Features
 
-- Calculate 1 Rep Max using the Epley formula
+- Calculate 1 Rep Max and other repitition maxes
 - Dark mode support
 - Save and load last input values (weight, reps, unit) from local storage
 - Responsive design
