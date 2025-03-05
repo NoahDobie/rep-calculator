@@ -57,7 +57,7 @@ function App() {
           onClick={() => setIsInfoOpen(true)}
         />
       </div>
-      <div className="p-2 w-[95%] sm:w-[75%] md:w-[50%] lg:w-[33%] xl:w-[30%]">
+      <div className="p-2 w-[95%] sm:w-[75%] md:w-[60%] lg:w-[60%] xl:w-[40%] 2xl:w-[30%]">
         <WeightInputForm
           weight={weight}
           reps={reps}
