@@ -6,6 +6,7 @@ interface CalculatedRepsDisplayProps {
   weight: number;
   reps: number;
   unit: string;
+  liftType: string;
   isDarkMode: boolean;
 }
 
@@ -27,8 +28,8 @@ function PercentageDisplay({ percentage, oneRepMax, unit, isDarkMode }: Percenta
   );
 }
 
-function CalculatedRepsDisplay({ weight, reps, unit, isDarkMode }: CalculatedRepsDisplayProps) {
-  const oneRepMax = calculateAverageOneRepMax(weight, reps);
+function CalculatedRepsDisplay({ weight, reps, unit, liftType, isDarkMode }: CalculatedRepsDisplayProps) {
+  const oneRepMax = calculateAverageOneRepMax(weight, reps, liftType);
 
   return (
     <div className={`p-4 rounded-lg shadow-md mt-3 ${isDarkMode ? 'bg-dark-secondary text-dark-text' : 'bg-light-secondary text-light-text'}`}>
