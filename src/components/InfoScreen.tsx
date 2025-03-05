@@ -25,12 +25,18 @@ function InfoScreen({ isOpen, onClose, isDarkMode }: InfoScreenProps) {
           &times;
         </button>
         <h2 className="text-xl font-bold mb-4">How does this john work?</h2>
-        <p className="w-full mb-4">
+        <p className="w-full mb-2">
           We use a bunch of different
           <a href="https://www.vbtcoach.com/blog/5-ways-to-measure-1rm-strength-in-the-gym" className="mx-1 underline underline-offset-2 hover:text-[#FFD43B] focus:text-[#FFD43B]">formulas</a>
           to gather the average value and provide you with your 1 rep max!
           <br />
         </p>
+        <ul className="list-disc list-inside ml-2 mb-2 text-left">
+          <li><strong>Squat:</strong> Epley formula</li>
+          <li><strong>Bench Press:</strong> Wathan and Mayhew formulas</li>
+          <li><strong>Deadlift:</strong> Brzycki and Epley formulas</li>
+          <li><strong>Other Lifts:</strong> Lombardi and O'Conner formulas</li>
+        </ul>
         <p className="mb-4">
           This provides a solid estimate of your 1 rep max, but it may not be perfectly accurate for everyone. It always give me the confidence of around what my 1RM will be. Only one way to find out for sure, though!
         </p>

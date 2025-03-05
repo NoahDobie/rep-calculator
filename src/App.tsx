@@ -14,6 +14,7 @@ function App() {
   const [weight, setWeight] = useLocalStorage<number | ''>('weight', '');
   const [reps, setReps] = useLocalStorage<number | ''>('reps', '');
   const [unit, setUnit] = useLocalStorage<string>('unit', 'lbs');
+  const [liftType, setLiftType] = useLocalStorage<string>('liftType', 'Squat');
   const [isDarkMode, toggleTheme] = useTheme();
   const [isInfoOpen, setIsInfoOpen] = useState<boolean>(false);
   const calculatorRef = useRef(null);
@@ -34,6 +35,10 @@ function App() {
 
   const handleUnitChange = (newUnit: string) => {
     setUnit(newUnit);
+  };
+
+  const handleLiftTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setLiftType(e.target.value);
   };
 
   const handleDarkModeToggle = (mode: 'dark' | 'light') => {
@@ -57,9 +62,11 @@ function App() {
           weight={weight}
           reps={reps}
           unit={unit}
+          liftType={liftType}
           onWeightChange={handleWeightChange}
           onRepsChange={handleRepsChange}
           onUnitChange={handleUnitChange}
+          onLiftTypeChange={handleLiftTypeChange}
           isDarkMode={isDarkMode}
         />
         <CSSTransition
@@ -70,7 +77,7 @@ function App() {
           nodeRef={calculatorRef}
         >
           <div ref={calculatorRef}>
-            <CalculatedRepsDisplay weight={Number(weight)} reps={Number(reps)} unit={unit} isDarkMode={isDarkMode} />
+            <CalculatedRepsDisplay weight={Number(weight)} reps={Number(reps)} unit={unit} liftType={liftType} isDarkMode={isDarkMode} />
           </div>
         </CSSTransition>
       </div>
