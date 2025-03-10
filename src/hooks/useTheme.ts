@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import useLocalStorage from './useLocalStorage';
 
 function useTheme(): [boolean, (mode: 'dark' | 'light') => void] {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    return prefersDarkScheme.matches;
-  });
+  const [isDarkMode, setIsDarkMode] = useLocalStorage<boolean>('isDarkMode', true); // Default to dark mode
 
   useEffect(() => {
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
@@ -15,7 +13,7 @@ function useTheme(): [boolean, (mode: 'dark' | 'light') => void] {
     return () => {
       prefersDarkScheme.removeEventListener('change', handleChange);
     };
-  }, []);
+  }, [setIsDarkMode]);
 
   const toggleTheme = (mode: 'dark' | 'light') => {
     setIsDarkMode(mode === 'dark');
