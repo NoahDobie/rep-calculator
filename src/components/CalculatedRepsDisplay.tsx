@@ -34,9 +34,9 @@ function CalculatedRepsDisplay({ weight, reps, unit, liftType, isDarkMode }: Cal
   return (
     <div className={`p-4 rounded-lg shadow-md mt-3 ${isDarkMode ? 'bg-dark-secondary text-dark-text' : 'bg-light-secondary text-light-text'}`}>
       <div className="text-center mb-4">
-        <div className="text-2xl font-normal flex items-center justify-center">
+        <div className="font-normal flex items-center justify-center">
           <FontAwesomeIcon icon={faCrown} className="text-2xl mr-2" style={{ color: '#FFD43B' }} />
-          <h1 className="text-3xl font-bold">{oneRepMax} {unit}</h1>
+          <h1 className="text-4xl font-bold">{oneRepMax} {unit}</h1>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">

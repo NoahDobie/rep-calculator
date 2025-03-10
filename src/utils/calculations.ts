@@ -33,17 +33,34 @@ export const calculateAverageOneRepMax = (weight: number, reps: number, liftType
 
   switch (liftType) {
     case 'Squat':
-      calculatedMax = calculateEpley(weight, reps);
+      calculatedMax = calculateAverage([
+        calculateBrzycki(weight, reps),
+        calculateEpley(weight, reps),
+        calculateLombardi(weight, reps)
+      ]);
       break;
     case 'Bench':
-      calculatedMax = calculateAverage([calculateWathan(weight, reps), calculateMayhew(weight, reps)]);
+      calculatedMax = calculateAverage([
+        calculateWathan(weight, reps),
+        calculateMayhew(weight, reps),
+        calculateEpley(weight, reps)
+      ]);
       break;
     case 'Deadlift':
-      calculatedMax = calculateAverage([calculateBrzycki(weight, reps), calculateEpley(weight, reps)]);
+      calculatedMax = calculateAverage([
+        calculateBrzycki(weight, reps),
+        calculateEpley(weight, reps),
+        calculateLombardi(weight, reps)
+      ]);
       break;
     case 'Other':
     default:
-      calculatedMax = calculateAverage([calculateLombardi(weight, reps), calculateOConner(weight, reps)]);
+      calculatedMax = calculateAverage([
+        calculateLombardi(weight, reps),
+        calculateOConner(weight, reps),
+        calculateBrzycki(weight, reps),
+        calculateEpley(weight, reps),
+      ]);
       break;
   }
 

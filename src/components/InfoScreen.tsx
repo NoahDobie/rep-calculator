@@ -31,12 +31,6 @@ function InfoScreen({ isOpen, onClose, isDarkMode }: InfoScreenProps) {
           to gather the average value and provide you with your 1 rep max!
           <br />
         </p>
-        <ul className="list-disc list-inside ml-2 mb-2 text-left">
-          <li><strong>Squat:</strong> Epley formula</li>
-          <li><strong>Bench Press:</strong> Wathan and Mayhew formulas</li>
-          <li><strong>Deadlift:</strong> Brzycki and Epley formulas</li>
-          <li><strong>Other Lifts:</strong> Lombardi and O'Conner formulas</li>
-        </ul>
         <p className="mb-4">
           This provides a solid estimate of your 1 rep max, but it may not be perfectly accurate for everyone. It always give me the confidence of around what my 1RM will be. Only one way to find out for sure, though!
         </p>
