@@ -27,6 +27,8 @@ export const calculateOConner = (weight: number, reps: number): number => {
 export const calculateAverageOneRepMax = (weight: number, reps: number, liftType: string): number => {
   if (reps === 1) {
     return weight;
+  } else {
+    reps = reps - 1;
   }
 
   let calculatedMax: number;
