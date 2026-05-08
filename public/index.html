@@ -12,6 +12,17 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>1 Rep Max Calculator</title>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('isDarkMode');
+          var isDark = stored === null
+            ? window.matchMedia('(prefers-color-scheme: dark)').matches
+            : JSON.parse(stored);
+          if (isDark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

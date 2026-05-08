@@ -1,6 +1,8 @@
 // Calculation formulas
 export const calculateBrzycki = (weight: number, reps: number): number => {
-  return Math.round(weight * (36 / (37 - reps)));
+  // Formula breaks down at reps >= 37 (denominator <= 0); clamp to keep output finite.
+  const safeReps = Math.min(reps, 35);
+  return Math.round(weight * (36 / (37 - safeReps)));
 };
 
 export const calculateEpley = (weight: number, reps: number): number => {
@@ -28,6 +30,8 @@ export const calculateAverageOneRepMax = (weight: number, reps: number, liftType
   if (reps === 1) {
     return weight;
   } else {
+    // Conservative adjustment: feed formulas reps-1 because they tend to
+    // overestimate. Removing this changes every output upward.
     reps = reps - 1;
   }
 
